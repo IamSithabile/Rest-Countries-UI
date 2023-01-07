@@ -1,13 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const CountryCard = ({ country }) => {
   const { name, capital, flags, region, population } = country
 
-  console.log(country)
-
   return (
-    <div className='w-1/6 h-auto  shadow-md shadow-gray-400 text-lg  bg-slate-50'>
-      <div className='rounded-lg'>
+    <Link
+      to={`/country/${country.name.common}`}
+      className='w-[16rem] flex-grow-0 flex-shrink-0 mb-8 block h-auto  shadow-md shadow-gray-400 text-lg  bg-slate-50'
+    >
+      <div>
         <img
           className='block rounded-t-md'
           src={flags.svg}
@@ -20,7 +22,7 @@ const CountryCard = ({ country }) => {
         <p>Region : {region}</p>
         <p>Capital : {capital}</p>
       </div>
-    </div>
+    </Link>
   )
 }
 
