@@ -4,17 +4,33 @@ import axios from 'axios'
 import CountriesList from './components/CountriesList'
 import Filter from './components/Filter'
 
-function App() {
+import { IoMoonOutline } from 'react-icons/io5'
+
+import './index.css'
+import Nav from './components/Nav'
+
+const App = () => {
   const [query, setQuery] = useState('')
   const [countries, setCountries] = useState([])
+  const [region, setRegion] = useState('')
+  const [dark, setdark] = useState(false)
 
   useEffect(() => {
-    axios.get('https://restcountries.com/v3.1/all').then(response => {
-      const data = response.data
-      console.log(data)
+    const getCountries = async () => {
+      let request
+      if (region) {
+        request = await axios.get(
+          `https://restcountries.com/v3.1/region/${region}`
+        )
+      } else {
+        request = await axios.get('https://restcountries.com/v3.1/all')
+      }
+      const data = await request.data
       setCountries(data)
-    })
-  }, [])
+    }
+
+    getCountries()
+  }, [region])
 
   const filterHandler = e => {
     setQuery(e.target.value)
@@ -29,19 +45,21 @@ function App() {
   )
 
   return (
-    <>
-      <h2>Search</h2>
+    <div className=' bg-slate-200'>
+      <Nav />
+
       <Filter
-        query={query}
-        filterHandler={filterHandler}
+        {...{ query }}
+        {...{ filterHandler }}
+        {...{ setRegion }}
       />
-      <h2>Countries found:</h2>
+
       <CountriesList
         query={query}
         showCountry={showCountry}
         filteredCountries={filteredCountries}
       />
-    </>
+    </div>
   )
 }
 
