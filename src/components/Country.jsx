@@ -7,7 +7,7 @@ const Country = () => {
   const [country, setCountry] = useState(null)
 
   const params = useParams()
-  const countryName = params.name
+  const countryName = params.name.toLowerCase()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -64,17 +64,20 @@ const Country = () => {
                 </ul>
               </div>
             </div>
-            <ul className='py-4  '>
-              Border Countries:
-              {country.borders.map(border => (
-                <li
-                  key={border}
-                  className=' inline-block p-1 '
-                >
-                  {border}
-                </li>
-              ))}
-            </ul>
+
+            {country.borders && (
+              <ul className='py-4  '>
+                Border Countries:
+                {country.borders.map(border => (
+                  <li
+                    key={border}
+                    className=' inline-block p-1 '
+                  >
+                    {border}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>

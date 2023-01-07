@@ -6,8 +6,8 @@ const CountryCard = ({ country }) => {
 
   return (
     <Link
-      to={`/country/${country.name.common}`}
-      className='w-[16rem] flex-grow-0 flex-shrink-0 mb-8 block h-auto  shadow-md shadow-gray-400 text-lg  bg-slate-50'
+      to={`/country/${country.name.common.toLowerCase()}`}
+      className='w-[16rem] flex-grow-0 flex-shrink-0  block h-auto  shadow-md shadow-gray-400 text-lg  bg-slate-50'
     >
       <div>
         <img

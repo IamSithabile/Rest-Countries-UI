@@ -5,8 +5,8 @@ import { BsSearch } from 'react-icons/bs'
 const Filter = props => {
   const { query, filterHandler, setRegion } = props
   return (
-    <div className='md:flex justify-between pb-12  font-semibold text-md items-center my-8 mx-20'>
-      <div className='flex space-x-4 items-center  border rounded-lg border-gray-300 bg-white shadow-lg py-4 px-8'>
+    <div className='md:flex md:justify-between pb-12  font-semibold text-md md:items-center md:my-8 lg:mx-20  mx-10'>
+      <div className='flex space-x-4 items-center  border rounded-lg border-gray-300 bg-white shadow-lg py-4 px-8 mb-4 md:mb-0'>
         <BsSearch className='' />
         <input
           className=' appearance-none   w-full  text-gray-700 leading-tight focus:outline-none focus:shadow-outline '

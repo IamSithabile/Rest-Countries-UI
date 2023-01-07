@@ -12,7 +12,7 @@ const CountriesList = props => {
 
   return (
     <div className='px-10 md:px-20'>
-      <ul className=' flex flex-col md:flex-row w-full items-center md:justify-between flex-wrap md:gap-x-4 md:gap-y-2 md:items-stretch'>
+      <ul className=' flex flex-col md:flex-row w-full items-center md:justify-between flex-wrap md:gap-x-4 gap-y-12 md:items-stretch'>
         {filteredCountries.map(country => {
           return (
             <>
